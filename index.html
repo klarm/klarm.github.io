@@ -61,76 +61,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-first" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/01/first/" class="article-date">
-  <time datetime="2015-07-01T14:28:54.000Z" itemprop="datePublished">2015-07-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/01/first/">first</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="概述">概述</h2><p>简单来讲，SDWebImage是一个用来异步加载网络图片的库，在使用者的角度，设置url以及占位图片后，其他的就不用做了，SDWebImage自动开始下载图片，并且在图片下载完成之前在相应的位置显示占位图片。</p>
-<h2 id="实现形式">实现形式</h2><p>通过为预定义控件添加类别方法来实现，具体来说，为以下控件做了扩展：<br>UIImage<br>UIButton<br>UIImageView<br>MKAnnotationView  </p>
-<h2 id="代码结构">代码结构</h2><p>如图：<br><img src="https://github.com/klarm/blog/raw/master/res/SDWebImage_proj.png" alt="如图:"></p>
-<p>主要由下面几个类组成：  </p>
-<ul>
-<li>SDWebImageDownloader<br>图片下载器</li>
-<li>SDImageCache<br>图片cache（包括disk和memory的cache）</li>
-<li>SDWebImageManager<br>大内总管，扮演协调downloader和cache之间关系的角色</li>
-</ul>
-<h1 id="主要类的设计">主要类的设计</h1><p>SDWebImageManager主要成员：  </p>
-<ul>
-<li>SDWebImageDownloader *imageDownloader管理下载  </li>
-<li>SDImageCache *imageCache管理缓存  </li>
-<li>id <sdwebimagemanagerdelegate> delegate回调通知</sdwebimagemanagerdelegate></li>
-</ul>
-<p>SDWebImageDownloader主要成员：  </p>
-<ul>
-<li>NSOperationQueue *downloadQueue存放下载任务队列<br>（SDWebImageDownloaderOperation派生自NSOperation）</li>
-</ul>
-<p>SDImageCache主要成员：  </p>
-<ul>
-<li>NSCache *memCache存放内存cache  </li>
-<li>NSString *diskCachePath存放磁盘cache的路径  </li>
-<li>dispatch_queue_t ioQueue表示io队列</li>
-</ul>
-<h2 id="几个关键点">几个关键点</h2><ul>
-<li>单例的实现<br>SDWebImage中SDWebImageManager、SDWebImageManager和SDImageCache都是以单例的形式存在，实现上用了类似的方法：  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ (id)sharedManager &#123;&#10;   &#9;static dispatch_once_t once;&#10;   &#9;static id instance;&#10;   &#9;dispatch_once(&#38;once, ^&#123;&#10;       &#9;instance = [self new];&#10;   &#9;&#125;);&#10;   &#9;return instance;&#10;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>简单来说，就是通过dispatch_once来实现单例。这种方法利用了dispatch_once可以保证block里的代码只执行一次，并且是线程安全的特性。<a href="http://blog.csdn.net/ryantang03/article/details/8622415" target="_blank" rel="external">可以参考这里。</a></p>
-<ul>
-<li>磁盘cache的实现<br>这里使用了UIImagePNGRepresentation和UIImageJPEGRepresentation读取图片的data，保存在NSData中，然后通过createFileAtPath保存在磁盘中。</li>
-</ul>
-<h2 id="相关链接">相关链接</h2><p><a href="https://github.com/enormego/EGOImageLoading" target="_blank" rel="external">EGOImageLoading</a><br>实现的思路大同小异，不同的是EGOImageLoading不是通过类别扩展标准控件，而是通过直接派生自UIButton、UIImageView实现的。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/01/first/" data-id="cibkxvs630000ap3cn0lqwxwo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/07/01/hello-world/" class="article-date">
@@ -166,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/01/hello-world/" data-id="cibkxvs7w0001ap3coqf8ksz5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/01/hello-world/" data-id="cibkyf5t50000bm3c7y8tyi8f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -191,7 +121,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -201,10 +131,6 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2015/07/01/first/">first</a>
-          </li>
         
           <li>
             <a href="/2015/07/01/hello-world/">Hello World</a>
