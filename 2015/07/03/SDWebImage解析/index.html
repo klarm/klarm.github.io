@@ -3,21 +3,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="概述简单来讲，SDWebImage是一个用来异步加载网络图片的库，在使用者的角度，设置url以及占位图片后，其他的就不用做了，SDWebImage自动开始下载图片，并且在图片下载完成之前在相应的位置显示占位图片。
+实现形式通过为预定义控件添加类别方法来实现，具体来说，为以下控件做了扩展：UIImageUIButtonUIImageViewMKAnnotationView  
+代码结构如图：
+主要由">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2015/07/01/hello-world/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2015/07/03/SDWebImage解析/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-07-01T14:13:07.000Z">
+<meta property="og:description" content="概述简单来讲，SDWebImage是一个用来异步加载网络图片的库，在使用者的角度，设置url以及占位图片后，其他的就不用做了，SDWebImage自动开始下载图片，并且在图片下载完成之前在相应的位置显示占位图片。
+实现形式通过为预定义控件添加类别方法来实现，具体来说，为以下控件做了扩展：UIImageUIButtonUIImageViewMKAnnotationView  
+代码结构如图：
+主要由">
+<meta property="og:image" content="https://github.com/klarm/blog/raw/master/res/SDWebImage_proj.png">
+<meta property="og:updated_time" content="2015-07-02T16:11:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="概述简单来讲，SDWebImage是一个用来异步加载网络图片的库，在使用者的角度，设置url以及占位图片后，其他的就不用做了，SDWebImage自动开始下载图片，并且在图片下载完成之前在相应的位置显示占位图片。
+实现形式通过为预定义控件添加类别方法来实现，具体来说，为以下控件做了扩展：UIImageUIButtonUIImageViewMKAnnotationView  
+代码结构如图：
+主要由">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -194,11 +201,11 @@ Quick">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-SDWebImage解析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/01/hello-world/" class="article-date">
-  	<time datetime="2015-07-01T14:13:07.000Z" itemprop="datePublished">2015-07-01</time>
+      <a href="/2015/07/03/SDWebImage解析/" class="article-date">
+  	<time datetime="2015-07-02T16:11:59.000Z" itemprop="datePublished">2015-07-03</time>
 </a>
     </div>
   
@@ -207,35 +214,42 @@ Quick">
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hello World
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-        
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h2 id="概述">概述</h2><p>简单来讲，SDWebImage是一个用来异步加载网络图片的库，在使用者的角度，设置url以及占位图片后，其他的就不用做了，SDWebImage自动开始下载图片，并且在图片下载完成之前在相应的位置显示占位图片。</p>
+<h2 id="实现形式">实现形式</h2><p>通过为预定义控件添加类别方法来实现，具体来说，为以下控件做了扩展：<br>UIImage<br>UIButton<br>UIImageView<br>MKAnnotationView  </p>
+<h2 id="代码结构">代码结构</h2><p>如图：<br><img src="https://github.com/klarm/blog/raw/master/res/SDWebImage_proj.png" alt="如图:"></p>
+<p>主要由下面几个类组成：  </p>
+<ul>
+<li>SDWebImageDownloader<br>图片下载器</li>
+<li>SDImageCache<br>图片cache（包括disk和memory的cache）</li>
+<li>SDWebImageManager<br>大内总管，扮演协调downloader和cache之间关系的角色</li>
+</ul>
+<h1 id="主要类的设计">主要类的设计</h1><p>SDWebImageManager主要成员：  </p>
+<ul>
+<li>SDWebImageDownloader *imageDownloader管理下载  </li>
+<li>SDImageCache *imageCache管理缓存  </li>
+<li>id <sdwebimagemanagerdelegate> delegate回调通知</sdwebimagemanagerdelegate></li>
+</ul>
+<p>SDWebImageDownloader主要成员：  </p>
+<ul>
+<li>NSOperationQueue *downloadQueue存放下载任务队列<br>（SDWebImageDownloaderOperation派生自NSOperation）</li>
+</ul>
+<p>SDImageCache主要成员：  </p>
+<ul>
+<li>NSCache *memCache存放内存cache  </li>
+<li>NSString *diskCachePath存放磁盘cache的路径  </li>
+<li>dispatch_queue_t ioQueue表示io队列</li>
+</ul>
+<h2 id="几个关键点">几个关键点</h2><ul>
+<li>单例的实现<br>SDWebImage中SDWebImageManager、SDWebImageManager和SDImageCache都是以单例的形式存在，实现上用了类似的方法：  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ (id)sharedManager &#123;&#10;   &#9;static dispatch_once_t once;&#10;   &#9;static id instance;&#10;   &#9;dispatch_once(&#38;once, ^&#123;&#10;       &#9;instance = [self new];&#10;   &#9;&#125;);&#10;   &#9;return instance;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>简单来说，就是通过dispatch_once来实现单例。这种方法利用了dispatch_once可以保证block里的代码只执行一次，并且是线程安全的特性。<a href="http://blog.csdn.net/ryantang03/article/details/8622415" target="_blank" rel="external">可以参考这里。</a></p>
+<ul>
+<li>磁盘cache的实现<br>这里使用了UIImagePNGRepresentation和UIImageJPEGRepresentation读取图片的data，保存在NSData中，然后通过createFileAtPath保存在磁盘中。</li>
+</ul>
+<h2 id="相关链接">相关链接</h2><p><a href="https://github.com/enormego/EGOImageLoading" target="_blank" rel="external">EGOImageLoading</a><br>实现的思路大同小异，不同的是EGOImageLoading不是通过类别扩展标准控件，而是通过直接派生自UIButton、UIImageView实现的。</p>
 
       
     </div>
@@ -245,15 +259,11 @@ Quick">
     
 <nav id="article-nav">
   
-    <a href="/2015/07/03/SDWebImage解析/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
+    <a href="/2015/07/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -280,7 +290,7 @@ Quick">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://yoursite.com/2015/07/01/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="SDWebImage解析" data-title="" data-url="http://yoursite.com/2015/07/03/SDWebImage解析/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
