@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>klarm</title>
+  <title>EGOTableViewPullRefresh解析 | klarm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="概述列表视图的下拉刷新是个很常见的功能，github上有很多开源的解决方案，EGOTableViewPullRefresh是其中使用很多的一个，下面来分析它的实现。
 UI组成整体效果图如下图所示：可以分为两个部分，列表视图部分和刷新指示视图部分。从UI结构上讲，没什么特别的，就是普通的subView关系：  
 if (_refreshHeaderView == nil) {">
 <meta property="og:type" content="article">
-<meta property="og:title" content="klarm">
+<meta property="og:title" content="EGOTableViewPullRefresh解析">
 <meta property="og:url" content="http://klarm.github.io/2015/07/17/EGOTableViewPullRefresh解析/index.html">
 <meta property="og:site_name" content="klarm">
 <meta property="og:description" content="概述列表视图的下拉刷新是个很常见的功能，github上有很多开源的解决方案，EGOTableViewPullRefresh是其中使用很多的一个，下面来分析它的实现。
@@ -18,9 +18,9 @@ if (_refreshHeaderView == nil) {">
 <meta property="og:image" content="https://raw.githubusercontent.com/klarm/blog/master/for-PullRefresh/%E6%95%B4%E4%BD%93%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/klarm/blog/master/for-PullRefresh/EGOTableViewPullRefresh%E8%A7%A3%E6%9E%90.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/klarm/blog/master/for-PullRefresh/EGOTableViewPullRefresh%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2.png">
-<meta property="og:updated_time" content="2015-07-16T16:36:36.000Z">
+<meta property="og:updated_time" content="2015-07-16T16:44:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="klarm">
+<meta name="twitter:title" content="EGOTableViewPullRefresh解析">
 <meta name="twitter:description" content="概述列表视图的下拉刷新是个很常见的功能，github上有很多开源的解决方案，EGOTableViewPullRefresh是其中使用很多的一个，下面来分析它的实现。
 UI组成整体效果图如下图所示：可以分为两个部分，列表视图部分和刷新指示视图部分。从UI结构上讲，没什么特别的，就是普通的subView关系：  
 if (_refreshHeaderView == nil) {">
@@ -170,7 +170,7 @@ if (_refreshHeaderView == nil) {">
   
     <div class="article-meta">
       <a href="/2015/07/17/EGOTableViewPullRefresh解析/" class="article-date">
-  	<time datetime="2015-07-16T16:36:36.000Z" itemprop="datePublished">2015-07-17</time>
+  	<time datetime="2015-07-16T16:00:00.000Z" itemprop="datePublished">2015-07-17</time>
 </a>
     </div>
   
@@ -178,6 +178,24 @@ if (_refreshHeaderView == nil) {">
     
       <input type="hidden" class="isFancy" />
     
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      EGOTableViewPullRefresh解析
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -223,8 +241,8 @@ layer<span class="variable">.frame</span> = <span class="built_in">CGRectMake</s
 <nav id="article-nav">
   
   
-    <a href="/2015/07/16/for-SDWebImage/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2015/03/01/for-SDWebImage/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SDWebImage解析</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -253,7 +271,7 @@ layer<span class="variable">.frame</span> = <span class="built_in">CGRectMake</s
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="EGOTableViewPullRefresh解析" data-title="" data-url="http://klarm.github.io/2015/07/17/EGOTableViewPullRefresh解析/"></div>
+	<div class="ds-thread" data-thread-key="EGOTableViewPullRefresh解析" data-title="EGOTableViewPullRefresh解析" data-url="http://klarm.github.io/2015/07/17/EGOTableViewPullRefresh解析/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
