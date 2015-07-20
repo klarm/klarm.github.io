@@ -29,7 +29,7 @@ Bitcode应用切片(App Slicing)：现在的app为了兼容不同设备，同时
 <meta property="og:image" content="https://raw.githubusercontent.com/klarm/blog/master/for-iOS9/AppThinng8.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/klarm/blog/master/for-iOS9/AppThinng.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/klarm/blog/master/for-iOS9/AppThinng10.png">
-<meta property="og:updated_time" content="2015-07-20T16:17:30.000Z">
+<meta property="og:updated_time" content="2015-07-20T16:35:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS9新特性之应用瘦身(App thinning)">
 <meta name="twitter:description" content="概述针对app体积越来越大的问题，iOS9引入了3种新技术：  
@@ -216,7 +216,7 @@ Bitcode应用切片(App Slicing)：现在的app为了兼容不同设备，同时
 <ul>
 <li>应用切片（App  Slicing）  </li>
 <li>资源按需加载（On Demand Resources）</li>
-<li>Bitcode<h3 id="应用切片(App_Slicing)：">应用切片(App Slicing)：</h3>现在的app为了兼容不同设备，同时包含了32 bit 和 64 bit 两个 slice；图片资源方面，1x，2x、3x的资源一应俱全，但是对具体用户来讲，其设备是特定的，为什么要让只需要3x分辨率的设备去下载2x和1x资源？为什么要让只能运行32bit的设备下载64bit的Architecture？<br>App Slicing的直观理解，就是在开发者上传的完整包中，根据设备情况切取最小可用的单元，并部署到实际设备，如下图所示：<br><img src="https://raw.githubusercontent.com/klarm/blog/master/for-iOS9/AppThinng1.png" alt=""></li>
+<li>Bitcode<h3 id="应用切片(App_Slicing)：">应用切片(App Slicing)：</h3>现在的app为了兼容不同设备，同时包含了32 bit 和 64 bit 两个 slice；图片资源方面，1x，2x、3x的资源一应俱全，但是对具体用户来讲，其设备是特定的，为什么要让只需要3x分辨率的设备去下载2x和1x资源？为什么要让只能运行32bit的设备下载64bit的Architecture？<br>App Slicing的直观理解，就是在开发者上传的完整包中，根据设备情况切取最小可用的单元，并部署到实际设备，如下图所示：<br><img src="https://raw.githubusercontent.com/klarm/blog/master/for-iOS9/AppThinng1.png" width="300px" height="200px"></li>
 </ul>
 <p>iOS9之前的app的完整包的组成如下图所示，对具体设备而言，存在冗余内容：<br><img src="https://raw.githubusercontent.com/klarm/blog/master/for-iOS9/AppThinng2.png" alt=""><br>以iPhone 6 Plus为例，下图说明了它实际需要的内容，除此之外的都是冗余的内容：<br><img src="https://raw.githubusercontent.com/klarm/blog/master/for-iOS9/AppThinng3.png" alt=""><br>有了App Slices，开发者就可以根据设备添加资产标签，当用户从iTunes下载应用时，它将仅下载你的设备需要的资产。因为苹果已经将整个过程设计得非常简单，所以相信很多应用很快就会开始支持这项特性。</p>
 <p>以前做资源的延迟下载，一般都是自己搭建server放置那些app以后用到的资源，然后在某个时机触发多线程下载，之后进行后续的处理。现在Apple用自己的server来实现这个功能， 不需要自己搭建server等繁琐的一套，只需要给资源打上tag，剩下的工作apple帮你完成。（XCode7有相应的支持，个人理解就是通过tag，进行分组下载）</p>
