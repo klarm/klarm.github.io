@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS开发之Link Map File | klarm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述iOS App编译之后生成的文件主要包含两部分：资源文件、可执行文件。有时候可能需要分析该可执行文件的组成，这时候可以使用Xcode生成的Link Map File。
+怎样生成Link Map FileLink Map File在Xcode的默认选项中是不生成的，需要手动打开。具体方法如下：Xcode-&amp;gt;Build Setting-&amp;gt;Linking-&amp;gt;Write Link M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之Link Map File">
+<meta property="og:url" content="http://klarm.github.io/2015/11/15/iOS开发之Link Map File/index.html">
+<meta property="og:site_name" content="klarm">
+<meta property="og:description" content="概述iOS App编译之后生成的文件主要包含两部分：资源文件、可执行文件。有时候可能需要分析该可执行文件的组成，这时候可以使用Xcode生成的Link Map File。
+怎样生成Link Map FileLink Map File在Xcode的默认选项中是不生成的，需要手动打开。具体方法如下：Xcode-&amp;gt;Build Setting-&amp;gt;Linking-&amp;gt;Write Link M">
+<meta property="og:updated_time" content="2015-11-15T12:34:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之Link Map File">
+<meta name="twitter:description" content="概述iOS App编译之后生成的文件主要包含两部分：资源文件、可执行文件。有时候可能需要分析该可执行文件的组成，这时候可以使用Xcode生成的Link Map File。
+怎样生成Link Map FileLink Map File在Xcode的默认选项中是不生成的，需要手动打开。具体方法如下：Xcode-&amp;gt;Build Setting-&amp;gt;Linking-&amp;gt;Write Link M">
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700|Open+Sans:700,400" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <div id="header-title">
+        <h1 id="logo-wrap">
+          <a href="/" id="logo">klarm
+          
+              <span id="subtitle">写写文字，记录所学、所想...</span>
+          
+          </a>
+        </h1>
+      </div>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://klarm.github.io"></form>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="outer">
+        <section id="main"><article id="post-iOS开发之Link Map File" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/15/iOS开发之Link Map File/" class="article-date">
+  <time datetime="2015-11-15T12:13:54.000Z" itemprop="datePublished">2015-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS开发之Link Map File
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概述">概述</h2><p>iOS App编译之后生成的文件主要包含两部分：资源文件、可执行文件。有时候可能需要分析该可执行文件的组成，这时候可以使用Xcode生成的Link Map File。</p>
+<h2 id="怎样生成Link_Map_File">怎样生成Link Map File</h2><p>Link Map File在Xcode的默认选项中是不生成的，需要手动打开。具体方法如下：<br>Xcode-&gt;Build Setting-&gt;Linking-&gt;Write Link Map File设置为YES，并在Path to Link Map File中设置存储路径。</p>
+<p>编译后，到如下目录找到该文本文件：<br>~/Library/Developer/Xcode/DerivedData/xxx/Build/Intermediates/xxx.build/Debug-iphoneos/xxx.build/<br>文件名如下：<br>项目名-LinkMap-平台名.txt</p>
+<h2 id="Link_Map_File文件的结构">Link Map File文件的结构</h2><p>整个Link Map File文件分为若干section，每个section描述一类信息，具体来说：  </p>
+<ol>
+<li><p>首先是目标文件列表<br>Object files:<br>[  1] /Users/xxx/Library/Developer/Xcode/DerivedData/xxx-fsjhasudsqcpnfanlqqibstjbhsb/Build/Intermediates/xxx.build/Debug-iphonesimulator/xxx.build/Objects-normal/i386/AppDelegate+BackgroundLoadService.o<br>…<br>如果该.o文件是通过链接某个静态库导入的，也能看出来，如：<br>[529] /Users/xxx/Library/Developer/Xcode/DerivedData/xxx-fsjhasudsqcpnfanlqqibstjbhsb/Build/Products/Debug-iphonesimulator/xxx.a(ThirdPartyHandler.o)</p>
+</li>
+<li><p>然后是一个段表，描述了编译生成的各个段在可执行文件中的偏移及大小，主要是包含指令的代码段(TEXT)和包含数据的数据段(DATA)<br>Sections:<br>Address    Size        Segment    Section<br>0x000038E0    0x01D1AD00    <strong>_TEXT    </strong>text<br>0x01D1E5E0    0x00002094    <strong>_TEXT    </strong>symbol_stub<br>0x01D20674    0x00002582    <strong>_TEXT    </strong>stub_helper<br>0x01D22BF6    0x000E476C    <strong>_TEXT    </strong>objc_methname<br>0x01E07362    0x00015DCA    <strong>_TEXT    </strong>objc_classname<br>0x01E1D12C    0x0001E4B1    <strong>_TEXT    </strong>objc_methtype<br>…</p>
+</li>
+<li><p>最后是符号段，描述了每个符号的偏移地址、所在文件及符号名。符号所在的文件是通过使用目标文件列表中的文件编号表示的。<br>Symbols:<br>Address    Size        File  Name<br>0x000038E0    0x000000A0    [  1] -[NSDictionary(valueForKeyWithOutNSNull) valueForKeyWithOutNSNull:]<br>0x00003980    0x00000070    [  1] -[NSDictionary(valueForKeyWithOutNSNull) valueForKeyWithReturnEmptyString:]<br>0x000039F0    0x0000007E    [  1] -[NSDictionary(valueForKeyWithOutNSNull) intValueWithDefaultVaule:]<br>0x00003A70    0x000002C0    [  2] -[QYFocusScrollView initWithFrame:numberOfPage:]</p>
+</li>
+</ol>
+<h2 id="总结">总结</h2><p>Link Map File本质上是链接器在链接时输出的一个文本文件，这个文件描述了App可执行文件大致的组成结构。在精简App包大小的时候，有时候需要了解具体的某个库或者某个函数在最终的可执行文件中所占的大小，这个时候Link Map File就派上了用场，它可以给优化提供方向。<br>其它平台上也有类似的工具，如Windows平台上的dumpbin命令，Linux平台上也有相应的命令。其实无论Windows、Linux还是iOS，其二进制格式都是类似的，无非是先带一个特有的header，随后加上一系列的sections，代码和数据分开存储。详细可以参考《程序员的自我修养》、《Links and Loaders》。<br>说句题外话，其实有时候了解一些单纯代码之外的东西，能让自己对程序及计算机的理解进一步加深，当时在学校的时候，看了《程序员的自我修养》，现在细节基本上都忘了，但是对各平台可执行文件格式的关系的印象还是很深，Linux下使用的ELF文件和Windows下使用的PE文件都是从Unix系统的COFF文件格式演化而来，无非是增加了一些平台特有的东西，但是大体的结构是相同的，iOS平台没有特别研究，但如果知道iOS平台来历的话，想来应该也差不了太多。<br>了解一些可执行文件的知识，不仅对优化二进制可执行文件方面有帮助，更重要的是能让你明白了链接器在生成可执行文件的过程中做了什么事情，比如如何收集各静态库的symbol、遇到没有resolve的symbol如何处理；动态链接是怎样实现的；做可执行文件的二进制重排为什么能提高程序的加载效率等等。这些东西的细节不一定要很清楚（实际上99.99%的人终其职业生涯都不会涉及编译器和链接器方面的开发），但是知道概念很重要，这样才能在出现了比如诡异的问题，如奇怪链接错误之后不会无从下手。<br>最后用引用林语堂先生的一句话自勉：“只用一样东西，不明白它的道理，实在不高明”。当然，人的精力有限，具体深究哪方面，到什么程度，那就是另一个问题了。我的建议是，适当聚焦、最好能和当前工作或兴趣相关，深入到可以用自己的话描述整个过程的大体原理为准，这样才能很自然地将其纳入自己的知识体系。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://klarm.github.io/2015/11/15/iOS开发之Link Map File/" data-id="cih0id5ns0001id3csf939lkp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/07/20/iOS 9新特性之应用瘦身-app-thinning/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iOS 9新特性之应用瘦身(App thinning)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          
+            <aside id="sidebar">
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget recents">
+      <ul>
+        
+          <li>
+            <a href="/2015/11/15/iOS开发之Link Map File/">iOS开发之Link Map File</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/20/iOS 9新特性之应用瘦身-app-thinning/">iOS 9新特性之应用瘦身(App thinning)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/19/iOS 9新特性之分屏多任务/">iOS 9新特性之分屏多任务</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/17/EGOTableViewPullRefresh解析/">EGOTableViewPullRefresh解析</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/01/for-SDWebImage/">SDWebImage解析</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+          
+        
+      </div>
+      <div id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a></br>
+      &copy; 2015 klarm<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</div>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
